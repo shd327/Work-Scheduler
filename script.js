@@ -22,7 +22,6 @@ $(function () {
   function timeIncrementTextArea() {
     var timeChecker = dayjs()
     currentMilitaryTime = timeChecker.format('H')
-    var indexNum;
     var containerDiv = $('.container-lg').children('div')
     containerDiv.each(function () {
       var index = $(this).attr('id');
