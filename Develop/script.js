@@ -16,21 +16,35 @@ $(function () {
     var parentDivId = $(this).parent().attr('id')
 
     localStorage.setItem(parentDivId, textAreaVal)
-    var timeChecker = dayjs()
-    currentMilitaryTime = timeChecker.format('H')
-    var indexNum;
-    var temp = $('.container-lg').children('div')
-    temp.each(function () {
-      var index = $(this).attr('id');
-      indexNum = index.replace('hour-', '')
-      console.log(indexNum);
-      if (indexNum !== currentMilitaryTime) {
-        $(this).addClass('past')
-      }
-    })
 
 
 
+
+  })
+
+  var timeChecker = dayjs()
+  currentMilitaryTime = timeChecker.format('H')
+  var indexNum;
+  var temp = $('.container-lg').children('div')
+  temp.each(function () {
+    var index = $(this).attr('id');
+    indexNum = index.replace('hour-', '')
+    console.log(indexNum);
+    if (indexNum > currentMilitaryTime) {
+      $(this).removeClass('present')
+      $(this).removeClass('past')
+      $(this).addClass('future')
+    }
+    if (indexNum < currentMilitaryTime) {
+      $(this).removeClass('present')
+      $(this).removeClass('future')
+      $(this).addClass('past')
+    }
+    if (indexNum == currentMilitaryTime) {
+      $(this).addClass('present')
+      $(this).removeClass('past')
+      $(this).removeClass('future')
+    }
   })
   // TODO: Add a listener for click events on the save button. This code should
   // use the id in the containing time-block as a key to save the user input in
