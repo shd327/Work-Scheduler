@@ -2,6 +2,11 @@
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
 var now = dayjs()
+
+var timeHeaderFormat = now.format('dddd, MMM D, YYYY')
+var timeHeader = $("#time-header")
+timeHeader.text(timeHeaderFormat)
+
 var button = $(".btn")
 $(function () {
   button.on('click', function (event) {
