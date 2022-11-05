@@ -12,11 +12,16 @@ $(function () {
   button.on('click', function (event) {
 
     var textAreaVal = $(this).prev().val()
+    // var parentDivId = $(this).parent().attr('id')
     var parentDivId = $(this).parent().attr('id')
-    // console.log(parentDivId)
-    // console.log(textAreaVal)
+
     localStorage.setItem(parentDivId, textAreaVal)
-    textAreaVal.text = localStorage.getItem(parentDivId, textAreaVal)
+    var timeChecker = dayjs()
+    currentMilitaryTime = timeChecker.format('H')
+
+    var temp = $('.container-lg').children()
+    console.log(temp)
+
 
   })
   // TODO: Add a listener for click events on the save button. This code should
