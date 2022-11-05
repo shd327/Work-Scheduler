@@ -18,14 +18,17 @@ $(function () {
     localStorage.setItem(parentDivId, textAreaVal)
     var timeChecker = dayjs()
     currentMilitaryTime = timeChecker.format('H')
-
+    var indexNum;
     var temp = $('.container-lg').children('div')
     temp.each(function () {
       var index = $(this).attr('id');
       indexNum = index.replace('hour-', '')
-
       console.log(indexNum);
+      if (indexNum !== timeChecker) {
+        parentDivId.addClass('present')
+      }
     })
+
 
 
   })
