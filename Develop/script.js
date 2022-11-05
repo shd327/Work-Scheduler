@@ -2,10 +2,13 @@
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
 var now = dayjs()
-
-var timeHeaderFormat = now.format('dddd, MMM D, YYYY')
-var timeHeader = $("#time-header")
-timeHeader.text(timeHeaderFormat)
+function TimeIncrement() {
+  var timeHeaderFormat = now.format('dddd, MMM D, YYYY, ss')
+  var timeHeader = $("#time-header")
+  timeHeader.text(timeHeaderFormat)
+  console.log(timeHeaderFormat)
+}
+setInterval(TimeIncrement, 1000)
 
 var button = $(".btn")
 $(function () {
