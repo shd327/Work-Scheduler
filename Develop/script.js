@@ -24,8 +24,8 @@ $(function () {
       var index = $(this).attr('id');
       indexNum = index.replace('hour-', '')
       console.log(indexNum);
-      if (indexNum !== timeChecker) {
-        parentDivId.addClass('present')
+      if (indexNum !== currentMilitaryTime) {
+        $(this).addClass('past')
       }
     })
 
