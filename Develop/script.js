@@ -10,16 +10,9 @@ timeHeader.text(timeHeaderFormat)
 var button = $(".btn")
 $(function () {
   button.on('click', function (event) {
-
     var textAreaVal = $(this).prev().val()
-    // var parentDivId = $(this).parent().attr('id')
     var parentDivId = $(this).parent().attr('id')
-
     localStorage.setItem(parentDivId, textAreaVal)
-
-
-
-
   })
 
   var timeChecker = dayjs()
