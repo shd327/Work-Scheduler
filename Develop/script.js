@@ -1,14 +1,15 @@
 // Wrap all code that interacts with the DOM in a call to jQuery to ensure that
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
-var now = dayjs()
-function TimeIncrement() {
-  var timeHeaderFormat = now.format('dddd, MMM D, YYYY, ss')
+
+function timeIncrementHeader() {
+  var now = dayjs()
+  var timeHeaderFormat = now.format('dddd, MMM D, YYYY')
   var timeHeader = $("#time-header")
   timeHeader.text(timeHeaderFormat)
   console.log(timeHeaderFormat)
 }
-setInterval(TimeIncrement, 1000)
+setInterval(timeIncrementHeader, 1000)
 
 var button = $(".btn")
 $(function () {
@@ -18,29 +19,32 @@ $(function () {
     localStorage.setItem(parentDivId, textAreaVal)
   })
 
-  var timeChecker = dayjs()
-  currentMilitaryTime = timeChecker.format('H')
-  var indexNum;
-  var containerDiv = $('.container-lg').children('div')
-  containerDiv.each(function () {
-    var index = $(this).attr('id');
-    indexNum = index.replace('hour-', '')
-    if (parseInt(indexNum) > currentMilitaryTime) {
-      $(this).removeClass('present')
-      $(this).removeClass('past')
-      $(this).addClass('future')
-    }
-    if (parseInt(indexNum) < currentMilitaryTime) {
-      $(this).removeClass('present')
-      $(this).removeClass('future')
-      $(this).addClass('past')
-    }
-    if (parseInt(indexNum) == currentMilitaryTime) {
-      $(this).addClass('present')
-      $(this).removeClass('past')
-      $(this).removeClass('future')
-    }
-  })
+  function timeIncrementTextArea() {
+    var timeChecker = dayjs()
+    currentMilitaryTime = timeChecker.format('H')
+    var indexNum;
+    var containerDiv = $('.container-lg').children('div')
+    containerDiv.each(function () {
+      var index = $(this).attr('id');
+      indexNum = index.replace('hour-', '')
+      if (parseInt(indexNum) > currentMilitaryTime) {
+        $(this).removeClass('present')
+        $(this).removeClass('past')
+        $(this).addClass('future')
+      }
+      if (parseInt(indexNum) < currentMilitaryTime) {
+        $(this).removeClass('present')
+        $(this).removeClass('future')
+        $(this).addClass('past')
+      }
+      if (parseInt(indexNum) == currentMilitaryTime) {
+        $(this).addClass('present')
+        $(this).removeClass('past')
+        $(this).removeClass('future')
+      }
+    })
+  }
+  setInterval(timeIncrementTextArea, 1000)
   // TODO: Add a listener for click events on the save button. This code should
   // use the id in the containing time-block as a key to save the user input in
   // local storage. HINT: What does `this` reference in the click listener
