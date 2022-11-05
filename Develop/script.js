@@ -25,22 +25,21 @@ $(function () {
   var timeChecker = dayjs()
   currentMilitaryTime = timeChecker.format('H')
   var indexNum;
-  var temp = $('.container-lg').children('div')
-  temp.each(function () {
+  var containerDiv = $('.container-lg').children('div')
+  containerDiv.each(function () {
     var index = $(this).attr('id');
     indexNum = index.replace('hour-', '')
-    console.log(indexNum);
-    if (indexNum > currentMilitaryTime) {
+    if (parseInt(indexNum) > currentMilitaryTime) {
       $(this).removeClass('present')
       $(this).removeClass('past')
       $(this).addClass('future')
     }
-    if (indexNum < currentMilitaryTime) {
+    if (parseInt(indexNum) < currentMilitaryTime) {
       $(this).removeClass('present')
       $(this).removeClass('future')
       $(this).addClass('past')
     }
-    if (indexNum == currentMilitaryTime) {
+    if (parseInt(indexNum) == currentMilitaryTime) {
       $(this).addClass('present')
       $(this).removeClass('past')
       $(this).removeClass('future')
