@@ -7,7 +7,6 @@ function timeIncrementHeader() {
   var timeHeaderFormat = now.format('dddd, MMM D, YYYY')
   var timeHeader = $("#time-header")
   timeHeader.text(timeHeaderFormat)
-  console.log(timeHeaderFormat)
 }
 setInterval(timeIncrementHeader, 1000)
 
