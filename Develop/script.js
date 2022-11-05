@@ -19,8 +19,13 @@ $(function () {
     var timeChecker = dayjs()
     currentMilitaryTime = timeChecker.format('H')
 
-    var temp = $('.container-lg').children()
-    console.log(temp)
+    var temp = $('.container-lg').children('div')
+    temp.each(function () {
+      var index = $(this).attr('id');
+      indexNum = index.replace('hour-', '')
+
+      console.log(indexNum);
+    })
 
 
   })
