@@ -23,7 +23,7 @@ The reasoning behind this project is to create a daily planner to  keep track of
 
 <br/>
 
-![A user clicks on slots on the color-coded calendar and edits the events.]()
+![A user clicks on slots on the color-coded calendar and edits the events.](./Assets/chrome_bhWhBnl3dl.png)
 
 
 
@@ -51,6 +51,6 @@ Cell: 908-883-0191
 This project is free use
 
 ## Links
-* https://shd118.github.io/Work-Scheduler/
-* https://github.com/SHD118/Work-Scheduler
+* https://github.com/shd327/Work-Scheduler
+* 
 
